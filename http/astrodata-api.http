@@ -1,0 +1,182 @@
+# =============================================================
+# STARS
+# =============================================================
+
+### Get all stars
+GET {{host}}/api/stars
+
+###
+### Get star by ID
+GET {{host}}/api/stars/1
+
+###
+### Create star
+POST {{host}}/api/stars
+Content-Type: application/json
+
+{
+  "name": "HD 40307",
+  "catalogueId": "HD 40307",
+  "spectralType": "K2.5V",
+  "massSolar": 0.771,
+  "temperatureK": 4977,
+  "radiusSolar": 0.716,
+  "distanceLy": 42.0,
+  "constellation": "Pictor",
+  "spaceMissions": [1]
+}
+
+###
+### Update star
+PUT {{host}}/api/stars/11
+Content-Type: application/json
+
+{
+  "name": "HD 40307",
+  "catalogueId": "HD 40307",
+  "spectralType": "K2.5V",
+  "massSolar": 0.771,
+  "temperatureK": 4977,
+  "radiusSolar": 0.716,
+  "distanceLy": 42.0,
+  "constellation": "Pictor",
+  "spaceMissions": [1, 2]
+}
+
+###
+### Delete star
+DELETE {{host}}/api/stars/11
+
+
+# =============================================================
+# EXOPLANETS
+# =============================================================
+
+### Get all exoplanets
+GET {{host}}/api/exoplanets
+
+###
+### Get exoplanet by ID
+GET {{host}}/api/exoplanets/1
+
+###
+### Create exoplanet (orbiting TRAPPIST-1, id=2, studied by TESS id=2)
+POST {{host}}/api/exoplanets
+Content-Type: application/json
+
+{
+  "name": "TRAPPIST-1h",
+  "massEarth": 0.331,
+  "radiusEarth": 0.755,
+  "orbitalPeriodDays": 18.767,
+  "discoveryYear": 2017,
+  "isInHabitableZone": false,
+  "star": 2,
+  "spaceMissions": [2, 3]
+}
+
+###
+### Update exoplanet
+PUT {{host}}/api/exoplanets/21
+Content-Type: application/json
+
+{
+  "name": "TRAPPIST-1h",
+  "massEarth": 0.331,
+  "radiusEarth": 0.755,
+  "orbitalPeriodDays": 18.767,
+  "discoveryYear": 2017,
+  "isInHabitableZone": true,
+  "star": 2,
+  "spaceMissions": [2, 3]
+}
+
+###
+### Delete exoplanet
+DELETE {{host}}/api/exoplanets/21
+
+
+# =============================================================
+# SPACE MISSIONS
+# =============================================================
+
+### Get all space missions
+GET {{host}}/api/spaceMissions
+
+###
+### Get space mission by ID
+GET {{host}}/api/spaceMissions/1
+
+###
+### Create space mission
+POST {{host}}/api/spaceMissions
+Content-Type: application/json
+
+{
+  "name": "Spitzer Space Telescope",
+  "agency": "NASA",
+  "launchDate": "2003-08-25",
+  "status": "COMPLETED",
+  "description": "Infrared space telescope that contributed to the study of TRAPPIST-1 system and many other exoplanets."
+}
+
+###
+### Update space mission
+PUT {{host}}/api/spaceMissions/8
+Content-Type: application/json
+
+{
+  "name": "Spitzer Space Telescope",
+  "agency": "NASA",
+  "launchDate": "2003-08-25",
+  "status": "COMPLETED",
+  "description": "Infrared space telescope retired in 2020. Key role in characterizing the TRAPPIST-1 system."
+}
+
+###
+### Delete space mission
+DELETE {{host}}/api/spaceMissions/8
+
+
+# =============================================================
+# COSMIC EVENTS
+# =============================================================
+
+### Get all cosmic events
+GET {{host}}/api/cosmicEvents
+
+###
+### Get cosmic event by ID
+GET {{host}}/api/cosmicEvents/1
+
+###
+### Create cosmic event (linked to Kepler-22, id=7)
+POST {{host}}/api/cosmicEvents
+Content-Type: application/json
+
+{
+  "name": "Kepler-22b Transit",
+  "eventType": "PLANETARY_TRANSIT",
+  "eventDate": "2011-12-05",
+  "magnitude": 0,
+  "description": "First confirmed transit of Kepler-22b, a super-Earth in the habitable zone of its star. Discovered by the Kepler space telescope.",
+  "star": 7
+}
+
+###
+### Update cosmic event
+PUT {{host}}/api/cosmicEvents/9
+Content-Type: application/json
+
+{
+  "name": "Kepler-22b Transit",
+  "eventType": "PLANETARY_TRANSIT",
+  "eventDate": "2011-12-05",
+  "magnitude": 0,
+  "description": "Confirmed transit of Kepler-22b. One of the first habitable zone super-Earths discovered by Kepler.",
+  "star": 7
+}
+
+###
+### Delete cosmic event
+DELETE {{host}}/api/cosmicEvents/9
