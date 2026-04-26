@@ -74,7 +74,7 @@ public class ExoplanetService {
         exoplanetDTO.setIsInHabitableZone(exoplanet.getIsInHabitableZone());
         exoplanetDTO.setStar(exoplanet.getStar() == null ? null : exoplanet.getStar().getId());
         exoplanetDTO.setSpaceMissions(exoplanet.getSpaceMissions().stream()
-                .map(spaceMission -> spaceMission.getId())
+                .map(SpaceMission::getId)
                 .toList());
         return exoplanetDTO;
     }

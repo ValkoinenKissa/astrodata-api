@@ -25,7 +25,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
-@Table(name = "Exoplanets")
+@Table(name = "exoplanets")                     // ← snake_case
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
@@ -60,9 +60,9 @@ public class Exoplanet {
 
     @ManyToMany
     @JoinTable(
-            name = "ExoplanetSpaceMissions",
-            joinColumns = @JoinColumn(name = "exoplanetId"),
-            inverseJoinColumns = @JoinColumn(name = "spaceMissionId")
+            name = "exoplanet_space_missions",
+            joinColumns = @JoinColumn(name = "exoplanet_id"),
+            inverseJoinColumns = @JoinColumn(name = "space_mission_id")
     )
     private Set<SpaceMission> spaceMissions = new HashSet<>();
 

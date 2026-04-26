@@ -21,7 +21,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
-@Table(name = "CosmicEvents")
+@Table(name = "cosmic_events")
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
@@ -44,7 +44,7 @@ public class CosmicEvent {
     @Column
     private Double magnitude;
 
-    @Column(name = "\"description\"")
+    @Column
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)

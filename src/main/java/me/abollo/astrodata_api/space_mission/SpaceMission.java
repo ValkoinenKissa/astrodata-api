@@ -22,7 +22,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
-@Table(name = "SpaceMissions")
+@Table(name = "space_missions")                 // ← snake_case
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
@@ -45,7 +45,7 @@ public class SpaceMission {
     @Column
     private String status;
 
-    @Column(name = "\"description\"")
+    @Column
     private String description;
 
     @ManyToMany(mappedBy = "spaceMissions")
