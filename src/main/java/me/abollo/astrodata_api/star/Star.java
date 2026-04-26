@@ -25,7 +25,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Entity
-@Table(name = "Stars")
+@Table(name = "stars")                          // ← snake_case
 @EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
@@ -35,6 +35,9 @@ public class Star {
     @Column(nullable = false, updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
+    private String name;
 
     @Column
     private String catalogueId;
@@ -47,6 +50,9 @@ public class Star {
 
     @Column
     private Double radiusSolar;
+
+    @Column
+    private Double temperatureK;
 
     @Column
     private Double distanceLy;
@@ -62,9 +68,9 @@ public class Star {
 
     @ManyToMany
     @JoinTable(
-            name = "StarSpaceMissions",
-            joinColumns = @JoinColumn(name = "starId"),
-            inverseJoinColumns = @JoinColumn(name = "spaceMissionId")
+            name = "star_space_missions",
+            joinColumns = @JoinColumn(name = "star_id"),
+            inverseJoinColumns = @JoinColumn(name = "space_mission_id")
     )
     private Set<SpaceMission> spaceMissions = new HashSet<>();
 

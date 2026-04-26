@@ -13,12 +13,17 @@ public class StarDTO {
     private Long id;
 
     @Size(max = 255)
+    private String name;
+
+    @Size(max = 255)
     private String catalogueId;
 
     @Size(max = 255)
     private String spectralType;
 
     private Double massSolar;
+
+    private Double temperatureK;
 
     private Double radiusSolar;
 

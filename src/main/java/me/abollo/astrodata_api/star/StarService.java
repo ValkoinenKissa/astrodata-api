@@ -65,10 +65,12 @@ public class StarService {
 
     private StarDTO mapToDTO(final Star star, final StarDTO starDTO) {
         starDTO.setId(star.getId());
+        starDTO.setName(star.getName());
         starDTO.setCatalogueId(star.getCatalogueId());
         starDTO.setSpectralType(star.getSpectralType());
         starDTO.setMassSolar(star.getMassSolar());
         starDTO.setRadiusSolar(star.getRadiusSolar());
+        starDTO.setTemperatureK(star.getTemperatureK());
         starDTO.setDistanceLy(star.getDistanceLy());
         starDTO.setConstellation(star.getConstellation());
         starDTO.setSpaceMissions(star.getSpaceMissions().stream()
@@ -79,9 +81,11 @@ public class StarService {
 
     private Star mapToEntity(final StarDTO starDTO, final Star star) {
         star.setCatalogueId(starDTO.getCatalogueId());
+        star.setName(starDTO.getName());
         star.setSpectralType(starDTO.getSpectralType());
         star.setMassSolar(starDTO.getMassSolar());
         star.setRadiusSolar(starDTO.getRadiusSolar());
+        star.setTemperatureK(starDTO.getTemperatureK());
         star.setDistanceLy(starDTO.getDistanceLy());
         star.setConstellation(starDTO.getConstellation());
         final List<SpaceMission> spaceMissions = spaceMissionRepository.findAllById(
